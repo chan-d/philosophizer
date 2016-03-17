@@ -1,7 +1,7 @@
 class BlogController < ApplicationController
-  before_filter :authorize
+  # before_filter :authorize
   def index
-    @blog = Blog.all.order("created_at DESC")
+    @blogs = Blog.all.order("created_at DESC")
   end
 
   def new

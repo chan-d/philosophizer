@@ -1,0 +1,16 @@
+
+<div class='container'><%= link_to "New Post", '/blog/new', class: 'btn btn-info' %></div>
+
+
+<div class='container'>
+
+
+  	<% @blog.each do |blog| %>
+  	<div class='panel panel-info'>
+  		<div class="panel-heading"> <%= blog.title %><br>
+  		    <div class="panel-body"> <p><%=  blog.post %></p>
+            </div>
+  		</div>
+  		<% end %>
+  	</div>
+</div>
