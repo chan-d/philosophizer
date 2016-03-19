@@ -33,7 +33,7 @@ class BlogController < ApplicationController
   def destroy
     blog = get_blog
     blog.destroy
-    redirect_to blogs_path
+    redirect_to user_path(current_user)
   end
 
   private
