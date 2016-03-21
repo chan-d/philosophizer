@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-
   def new
-
   end
 
   def create
@@ -16,15 +14,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @blog = @user.blogs.all.order("created_at DESC")
-      if @user != current_user
-          redirect_to current_user
-      end
+    @blog = @user.blogs.all.order('created_at DESC')
+    redirect_to current_user if @user != current_user
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :username, :description, :password, :password_confirmation)
   end
-
 end

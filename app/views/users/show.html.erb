@@ -1,34 +1,43 @@
-
 <div class="col-md-6 col-md-offset-3 container">
 
   <div class='panel panel-default'>
-    <div class="panel-heading"> Profile
+    <div class="panel-heading">
+      Profile
     </div>
     <div class="panel-body">
-      <strong>Name: </strong> <%= current_user.name %>
-      <br />
-      <strong>Email:</strong> <%= current_user.email %>
-      <br />
-      <strong>Username:</strong> <%= current_user.username %>
-      <br />
-      <strong>Date joined:</strong> <%= current_user.created_at.strftime("%B %-d, %Y") %>
-      <br  />
+      <strong>Name:
+      </strong>
+      <%= current_user.name %>
+      <br/>
+      <strong>Email:</strong>
+      <%= current_user.email %>
+      <br/>
+      <strong>Username:</strong>
+      <%= current_user.username %>
+      <br/>
+      <strong>Date joined:</strong>
+      <%= current_user.created_at.strftime("%B %-d, %Y") %>
+      <br/>
       <%= link_to "New Post", '/blog/new', class: 'btn btn-info' %>
     </div>
   </div>
 </div>
-
 
 <div class="container">
   <div class='col-md-6 col-md-offset-3'>
 
     <% @blog.each do |blog| %>
     <div class='panel panel-default'>
-      <div class="panel-heading"> <%= blog.created_at.strftime("%B %-d, %Y") %></div>
+      <div class="panel-heading">
+        <%= blog.created_at.strftime("%B %-d, %Y") %></div>
 
       <div class="panel-body">
-        <p><strong>Title: </strong><%= blog.title %></p><hr />
-        <p><strong>Post: </strong><%=  blog.post %></p>
+        <p>
+          <strong>Title:
+          </strong><%= blog.title %></p><hr/>
+        <p>
+          <strong>Post:
+          </strong><%=  blog.post %></p>
       </div>
       <div class="panel-footer">
         <%= button_to "Edit Post", edit_blog_path(blog.id), method: :get, class: "btn btn-warning" %>
