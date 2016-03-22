@@ -4,8 +4,25 @@
 
 .jumbotron  {
 	min-height: 500px;
-	background-image: url('http://placehold.it/1020x400&text=image+placeholder');
+	background-image: url('http://www.uidaho.edu/~/media/UIdaho-Responsive/Images/class/departments/philosophy/Slider/philosophy-slider.ashx');
 	background-size: cover;
 	margin-top: -20px;
+	font-family: 'Great Vibes', cursive;
+	.jumbo_text{
+		font-size: 72px;
+		position: relative;
+		text-align: right;
+		right: 35px;
+		color: white;
+	}
+}
+
+.icons {
+
+	text-align: center;
+	display: inline-block;
+	i{
+		padding: 10px;
+	}
 }
 body { padding-top: 70px; }
