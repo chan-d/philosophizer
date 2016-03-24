@@ -18,7 +18,22 @@ class UsersController < ApplicationController
     redirect_to current_user if @user != current_user
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    @user.update_attributes(update_user_params)
+    redirect_to user_path(@user.id)
+  end
+
+
   private
+
+  def update_user_params
+    params.require(:user).permit(:name, :email, :username, :description)
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :username, :description, :password, :password_confirmation)
