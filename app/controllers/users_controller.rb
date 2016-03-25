@@ -14,8 +14,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @blog = @user.blogs.all.order('created_at DESC')
-    redirect_to current_user if @user != current_user
+    @blogs = @user.blogs.all.order('created_at DESC')
+    @blog = Blog.new()
+    # redirect_to current_user if @user != current_user
   end
 
   def edit
