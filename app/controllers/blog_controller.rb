@@ -25,9 +25,13 @@ class BlogController < ApplicationController
   end
 
   def edit
-    blog = get_blog
-    blog.update_attributes(blog_params)
-    redirect_to blog_path(blog)
+    @blog = get_blog
+  end
+
+  def update
+    @blog = get_blog
+    @blog.update_attributes(blog_params)
+    redirect_to user_path(current_user)
   end
 
 
