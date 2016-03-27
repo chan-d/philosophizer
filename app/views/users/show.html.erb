@@ -93,7 +93,7 @@
       </div>
       <div class="panel-footer">
         <%= button_to "Edit Post", edit_blog_path(blog.id), method: :get, class: "btn btn-warning" %>
-        <%= button_to "Delete Post", delete_blog_path(blog.id), method: :get, class: "btn btn-warning" %>
+        <%= button_to "Delete Post", delete_blog_path(blog.id), method: :delete, class: "btn btn-warning" %>
       </div>
     </div>
     <% end %>
