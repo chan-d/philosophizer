@@ -30,6 +30,8 @@ class BlogController < ApplicationController
     redirect_to blog_path(blog)
   end
 
+
+
   def destroy
     blog = get_blog
     blog.destroy
