@@ -14,3 +14,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $('body').on("click", ".edit_post", function(){
+    var title = $(this).closest('.panel').find('p:first').text(),
+     post = $(this).closest('.panel').find('p:last').text(),
+     blog_id = $(this).data('id');
+
+     $('#blogs-modal form').attr('action', '/blogs', + blog.id);
+     $('#blogs-modal form').attr('data-remote', 'true');
+     $('#blogs-modal form').find('input#blog_title').val(title);
+     $('#blogs-modal form').find('textarea#blog_post').val(post);
+     $('#blogs-modal form').prepend("<input type = 'hidden' name='_method' value='put'>");
+  });
+
+  $('#blogs-modal').on('hidden.bs.modal', function() {
+    $('#blog-form-errors').addClass('hidden');
+  });
+
+});

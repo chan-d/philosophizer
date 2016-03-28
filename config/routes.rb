@@ -17,11 +17,11 @@ Rails.application.routes.draw do
   delete '/users/:id', to: 'users#destroy', as:'delete_user'
 
   #blog
-  get '/blog', to: 'blog#index', as: 'blogs'
-  get '/blog/new', to: 'blog#new'
-  post '/blog', to: 'blog#create', as: 'new_blog'
-  get '/blog/:id', to: 'blog#show', as: 'blog'
-  get '/blog/:id/edit', to: 'blog#edit', as: 'edit_blog'
-  patch '/blog/:id', to: 'blog#update'
-  delete '/blog/:id', to: 'blog#destroy', as: 'delete_blog'
+  get '/blogs', to: 'blog#index', as: 'blogs'
+  get '/blogs/new', to: 'blog#new'
+  post '/blogs', to: 'blog#create', as: 'new_blog'
+  get '/blogs/:id', to: 'blog#show', as: 'blog'
+  get '/blogs/:id/edit', to: 'blog#edit', as: 'edit_blog'
+  patch '/blogs/:id', to: 'blog#update'
+  delete '/blogs/:id', to: 'blog#destroy', as: 'delete_blog'
 end

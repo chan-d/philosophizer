@@ -35,7 +35,7 @@
   </div>
 </div>
 
-<div class="modal fade" id='<%= "postModal_#{current_user.id}" %>' role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id='blogs-modal' role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -43,7 +43,7 @@
         <h4 class="modal-title" id="postModalLabel">New Post</h4>
       </div>
       <div class="modal-body">
-        <%= render 'blog/form', user: current_user, blog: @blog %>
+        <%= render 'blogs/form' %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -51,10 +51,6 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
-
-
 
 
 <div class="modal fade" id='<%= "myModal_#{current_user.id}" %>' role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -79,20 +75,29 @@
   <div class='col-md-6 col-md-offset-3'>
 
     <% @blogs.each do |blog| %>
-    <div class='panel panel-default'>
+    <div class='panel panel-default' data-id='<%= blog.id %>'>
       <div class="panel-heading">
         <%= blog.created_at.strftime("%B %-d, %Y") %></div>
 
       <div class="panel-body">
-        <p>
-          <strong>Title:
-          </strong><%= blog.title %></p><hr/>
-        <p>
-          <strong>Post:
-          </strong><%=  blog.post %></p>
+        <strong>Title:</strong> <br>
+        <p><%= blog.title %></p>
+        <hr/>
+        <strong>Post:</strong> <br>
+        <p><%= blog.post %></p>
       </div>
       <div class="panel-footer">
+<<<<<<< Updated upstream
         <%= button_to "Edit Post", edit_blog_path(blog.id), method: :get, class: "btn btn-warning" %>
+=======
+
+        <button type='button' class='edit-post btn btn-warning' data-id='<%= blog.id %>'
+            data-toggle='modal' data-target='#blogs-modal'>
+          Edit Post
+        </button>
+
+        <%#= button_to "Edit Post", edit_blog_path(blog.id), method: :get, class: "btn btn-warning" %>
+>>>>>>> Stashed changes
         <%= button_to "Delete Post", delete_blog_path(blog.id), method: :get, class: "btn btn-warning" %>
       </div>
     </div>

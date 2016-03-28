@@ -1,0 +1,20 @@
+(function () {
+
+  var blog = <%= raw @blog.to_json %>,
+      status = "<%= @status %>",
+      errors = "<%= @errors %>",
+      $blogModal = $("#blogs-modal"),
+      $blogForm = $("#blogs-modal form"),
+      $blogPanel = $("[data-id='" + blog.id + "']");
+
+  if (status === 'success') {
+    $blogPanel.find('p:first').text(blog.title);
+    $blogPanel.find('p:last').text(blog.post);
+    $('#blogs-modal').modal('hide');
+  }
+  else {
+    $("#blog-form-errors").removeClass('hidden')
+                          .append(errors);
+  }
+
+})();
